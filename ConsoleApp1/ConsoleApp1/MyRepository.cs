@@ -4,6 +4,15 @@ namespace ConsoleApp1
 {
     public class MyRepository: IRepository
     {
+        private IListService<Item> _listService { get; }
+
+        public MyRepository() { }
+
+        public MyRepository(IListService<Item> listService)
+        {
+            _listService = listService;
+        }
+
         public Item GetItem (int id)
         {
             return new Item()
@@ -15,11 +24,7 @@ namespace ConsoleApp1
         }
         public List<Item> GetItems()
         {
-            return new List<Item>()
-            {
-                new Item() { Id = 1, Name = "First Item", Description = "First Item in our repository."},
-                new Item() { Id = 2, Name = "Second Item", Description = "Second Item in our repository."}
-            };
+            return _listService.GetItems();
         }
     }
 }
