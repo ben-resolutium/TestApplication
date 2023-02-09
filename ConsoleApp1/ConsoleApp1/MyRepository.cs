@@ -8,7 +8,7 @@ namespace ConsoleApp1
         {
             return new Item()
             {
-                Id = 1,
+                Id = id,
                 Name = "First Item",
                 Description = "First Item in our repository."
             };

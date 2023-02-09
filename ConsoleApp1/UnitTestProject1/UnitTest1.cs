@@ -10,10 +10,11 @@ namespace UnitTestProject1
         [TestMethod]
         public void TestMethod1()
         {
+            var expectedId = 7;
             var repo = new MyRepository();
-            var item = repo.GetItem(1);
+            var item = repo.GetItem(expectedId);
             Assert.IsNotNull(item);
-            Assert.AreEqual("First Item", item.Name);
+            Assert.AreEqual(expectedId, item.Id);
         }
     }
 }
